@@ -1,0 +1,43 @@
+{
+  "name": "request-merger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "should": "^11.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "pre-git": "^3.10.0"
+  },
+  "scripts": {
+    "test": "mocha --harmony tests/index.test.js",
+    "commit": "commit-wizard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denghongcai/request-merge.git"
+  },
+  "author": "Hongcai Deng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/denghongcai/request-merge/issues"
+  },
+  "homepage": "https://github.com/denghongcai/request-merge#readme",
+  "engines": {
+    "node": ">=4"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": ["npm test"],
+      "pre-push": [],
+      "post-commit": ["git status"],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  }
+}
