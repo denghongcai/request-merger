@@ -1,8 +1,7 @@
 /*
  * index
  *
- * Copyright (C) Alibaba Group Holding Limited.
- * Author: hongcai.dhc <hongcai.dhc@alibaba-inc.com>
+ * Author: Hongcai Deng <admin@dhchouse.com>
  */
 
 'use strict';
