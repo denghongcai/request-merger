@@ -17,17 +17,23 @@ module.exports = class RequestMerger {
 
   request(...args) {
     const key = JSON.stringify(args);
-    this.worker
-      .apply(this, args)
-      .then(data => {
-        this.emitter.emit(key, data);
-      })
-      .catch(err => {
-        this.emitter.emit(`${key}error`, err);
-      });
+    if (!this.isOnTheWay(key)) {
+      this.worker
+        .apply(this, args)
+        .then(data => {
+            this.emitter.emit(key, data);
+        })
+        .catch(err => {
+            this.emitter.emit(`${key}error`, err);
+        });
+    }
     return new Promise((resolve, reject) => {
       this.emitter.once(key, resolve);
       this.emitter.once(`${key}error`, reject);
     });
+  }
+  
+  isOnTheWay(key) {
+    return this.emitter.listenerCount(key) > 0;
   }
 };
