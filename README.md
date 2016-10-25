@@ -21,8 +21,13 @@ const rp = require('request-promise');
 const request = new RequestMerger(function (url) {
   return rp(url);
 });
-request('https://httpbin.org/get')
-  .then(res => {
-    console.log(res);
-  });
+console.dir(Promise.all([
+  request('https://httpbin.org/get')
+  request('https://httpbin.org/get')
+  request('https://httpbin.org/get')
+  request('https://httpbin.org/get')
+  request('https://httpbin.org/get')
+]));
 ```
+
+run above code, you'll find that only one request is sent.
