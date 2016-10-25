@@ -1,5 +1,7 @@
 # request-merger
 
+[![Build Status](https://travis-ci.org/denghongcai/request-merger.svg?branch=master)](https://travis-ci.org/denghongcai/request-merger)[![Coverage Status](https://coveralls.io/repos/github/denghongcai/request-merger/badge.svg?branch=master)](https://coveralls.io/github/denghongcai/request-merger?branch=master)
+
 ### Installation
 just
 
