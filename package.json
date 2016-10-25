@@ -18,18 +18,19 @@
   },
   "scripts": {
     "test": "mocha --harmony tests/index.test.js",
+    "test-coveralls": "node --harmony node_modules/istanbul/lib/cli.js cover _mocha -- tests/index.test.js --report lcovonly  --harmony -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "commit": "commit-wizard"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/denghongcai/request-merge.git"
+    "url": "git+https://github.com/denghongcai/request-merger.git"
   },
   "author": "Hongcai Deng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/denghongcai/request-merge/issues"
+    "url": "https://github.com/denghongcai/request-merger/issues"
   },
-  "homepage": "https://github.com/denghongcai/request-merge#readme",
+  "homepage": "https://github.com/denghongcai/request-merger#readme",
   "engines": {
     "node": ">=4"
   },
