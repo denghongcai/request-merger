@@ -21,14 +21,18 @@ module.exports = class RequestMerger {
       this.worker
         .apply(this, args)
         .then(data => {
-            this.emitter.emit(key, data);
+          this.emitter.emit(key, data);
+          this.emitter.removeAllListeners(`${key}error`);
         })
         .catch(err => {
-            this.emitter.emit(`${key}error`, err);
+          this.emitter.emit(`${key}error`, err);
+          this.emitter.removeAllListeners(key);
         });
     }
     return new Promise((resolve, reject) => {
-      this.emitter.once(key, resolve);
+      this.emitter.once(key, data => {
+        resolve(data);
+      });
       this.emitter.once(`${key}error`, reject);
     });
   }
